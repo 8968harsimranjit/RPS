@@ -17,6 +17,20 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
  
+    enum Guess: String{
+        case rock = "Rock"
+        case paper = "Paper"
+        case secissors = "secissors"
+    }
+    
+    enum Winner: String{
+        case user = "You won!"
+        case sam = "Sam won!"
+        case tie = "Tie!"
+    }
+    
+    let Guesses:[Guess] = [.rock,.paper,.secissors]
+    
     @IBAction func samGussed(_ sender: UIButton) {
         let tappedButton = sender.tag
         switch tappedButton{
