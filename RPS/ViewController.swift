@@ -8,6 +8,9 @@
 import UIKit
 
 class ViewController: UIViewController {
+    @IBOutlet weak var userGuess: UILabel!
+    @IBOutlet weak var samGuess: UILabel!
+    @IBOutlet weak var winner: UILabel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
