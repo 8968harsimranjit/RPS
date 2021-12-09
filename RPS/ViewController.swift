@@ -32,18 +32,57 @@ class ViewController: UIViewController {
     let Guesses:[Guess] = [.rock,.paper,.secissors]
     
     @IBAction func samGussed(_ sender: UIButton) {
+        
+        
         let tappedButton = sender.tag
         switch tappedButton{
         case 1:
-            break
+            winner.text = (selectWinner(user: .rock, sam: GenerateSamGuess())).rawValue
         case 2:
-            break
+            winner.text = (selectWinner(user: .paper, sam: GenerateSamGuess())).rawValue
         case 3:
-            break
+            winner.text = (selectWinner(user: .secissors, sam: GenerateSamGuess())).rawValue
         default:
             print("Result unknown")
         }
     }
-    
+    func GenerateSamGuess() -> Guess{
+        return Guesses.randomElement()!
+    }
+    func selectWinner(user: Guess, sam: Guess) -> Winner{
+        userGuess.text = "You gussed: \(user.rawValue)"
+        samGuess.text = "Sam gussed: \(sam.rawValue)"
+        
+        switch user{
+            
+        case .rock:
+            if sam == .paper{
+                return .user
+            }else if sam == .secissors{
+                return .sam
+            }else{
+                return .tie
+            }
+        case .paper:
+            if sam == .secissors{
+                return .user
+            }else if sam == .rock{
+                return .sam
+            }else{
+                return .tie
+            }
+
+        case .secissors:
+            if sam == .rock{
+                return .user
+            }else if sam == .paper{
+                return .sam
+            }else{
+                return .tie
+            }
+
+        }
+
+    }
 }
 
